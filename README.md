@@ -37,8 +37,6 @@ cd Social_simulation
 # Install dependencies
 pip install -r requirements.txt
 
-# (Optional) Install Flash Attention for faster training
-pip install flash-attn --no-build-isolation
 ```
 
 ### Step 2: Data Preparation
