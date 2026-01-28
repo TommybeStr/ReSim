@@ -3,16 +3,15 @@
 # 适配数据格式: Parquet (Root-Only + Look-ahead Noise)
 
 # ========== 1. 路径配置 ==========
-# Python 训练脚本路径 (请修改为你实际保存的文件名)
-TRAIN_SCRIPT="/home/zss/Social_Behavior_Simulation/grpo_cls_bfs/train_gen_distributed.py"
+TRAIN_SCRIPT="src/training/train_grpo_gen_bfs.py"
 
 # 数据路径 (使用由 build_grpo_from_raw_aligned.py 生成的 Parquet)
-DATA_PATH="/home/zss/Social_Behavior_Simulation/abcreading/processed/grpo.parquet"
+DATA_PATH="demo_dataset/demo_train_grpo.parquet"
 
 # 模型与输出路径
 MODEL_PATH="/home/zss/Social_Behavior_Simulation/abcreading/sft_ckpt/global_step_6400"
 TOKENIZER_PATH="/home/zss/Social_Behavior_Simulation/abcreading/sft_ckpt/tokenizer_with_spans"
-OUTPUT_DIR="/home/zss/Social_Behavior_Simulation/abcreading/grpockpt/f1"
+OUTPUT_DIR="/home/zss/Social_Behavior_Simulation/Social_simulation/grpo_ckpt"
 
 # 日志路径
 LOG_FILE="${OUTPUT_DIR}/train_$(date +%Y%m%d_%H%M%S).log"
@@ -44,7 +43,6 @@ nohup torchrun --nproc_per_node=4 \
     --use_lora \
     --lora_r 8 \
     --save_steps 40 \
-    --resume_path /home/zss/Social_Behavior_Simulation/abcreading/grpockpt/f1/ckpt-step320-upd40 \
     > "$LOG_FILE" 2>&1 &
 
 PID=$!
