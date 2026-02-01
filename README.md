@@ -26,9 +26,7 @@ Social_simulation/
 ### Step 1: Environment Setup
 
 **Requirements:**
-* Python 3.8+
-* PyTorch 2.6.0+
-* CUDA 11.8+
+* Python 3.11.14
 
 ```bash
 # Clone or enter the directory
